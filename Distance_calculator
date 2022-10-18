@@ -1,0 +1,14 @@
+function DriveDistance(start_address,end_address) {
+  //Calculates the travel distance between two addresses on the map using Google Map API
+  Utilities.sleep(1000)
+ 
+   var directions = Maps.newDirectionFinder()
+    .setOrigin(start_address)
+    .setDestination(end_address)
+    .setMode(Maps.DirectionFinder.Mode.DRIVING)
+    .getDirections();
+   var meters = directions["routes"][0]["legs"][0]["distance"]["value"];
+   //Logger.log(directions["routes"][0]["legs"][0]["distance"]["value"])
+   return meters/1000 
+   
+}
